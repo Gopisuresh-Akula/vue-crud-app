@@ -11,10 +11,10 @@
       </thead>
       <tbody>
         <tr v-for="item in items" :key="item.id">
-          <td>{{ item.name }}</td>
+          <td>{{ item.title }}</td>
           <td>
             <button @click="editItem(item)">Edit</button>
-            <button @click="deleteItem(item)">Delete</button>
+            <button @click="deleteItem(item.id)">Delete</button>
           </td>
         </tr>
       </tbody>
@@ -22,7 +22,7 @@
     <div v-if="createModalVisible" class="modal">
       <div class="modal-content">
         <h3>Create Item</h3>
-        <input type="text" v-model="newItem.name" placeholder="Enter Name" />
+        <input type="text" v-model="newItem.title" placeholder="Enter Name" />
         <button @click="handleCreate">Create</button>
         <button @click="closeCreateModal">Cancel</button>
       </div>
@@ -30,7 +30,7 @@
     <div v-if="editModalVisible" class="modal">
       <div class="modal-content">
         <h3>Edit Item</h3>
-        <input type="text" v-model="editedItem.name" />
+        <input type="text" v-model="editedItem.title" />
         <button @click="handleEdit">Save Changes</button>
         <button @click="closeEditModal">Cancel</button>
       </div>
@@ -39,65 +39,79 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'App',
   data() {
     return {
-      items: [
-        { id: 1, name: 'Item 1' },
-        { id: 2, name: 'Item 2' },
-        // Other sample items
-      ],
+      items: [],
       createModalVisible: false,
       editModalVisible: false,
       newItem: {
-        name: ''
-        // Other fields
+        title: ''
       },
       editedItem: {
         id: null,
-        name: ''
-        // Other fields
+        title: ''
       }
     };
   },
+  created() {
+    this.fetchItems();
+  },
   methods: {
+    async fetchItems() {
+      try {
+        const response = await axios.get('https://jsonplaceholder.typicode.com/todos');
+        this.items = response.data;
+      } catch (error) {
+        console.error('Error fetching items:', error);
+      }
+    },
     showCreateModal() {
       this.createModalVisible = true;
     },
     closeCreateModal() {
       this.createModalVisible = false;
-      this.newItem.name = '';
+      this.newItem.title = '';
     },
-    handleCreate() {
-      this.items.push({
-        id: this.items.length + 1,
-        name: this.newItem.name
-        // Other fields
-      });
-      this.closeCreateModal();
+    async handleCreate() {
+      try {
+        const response = await axios.post('https://jsonplaceholder.typicode.com/todos', this.newItem);
+        this.items.push(response.data);
+        this.closeCreateModal();
+      } catch (error) {
+        console.error('Error creating item:', error);
+      }
     },
     editItem(item) {
       this.editedItem.id = item.id;
-      this.editedItem.name = item.name;
+      this.editedItem.title = item.title;
       this.editModalVisible = true;
     },
     closeEditModal() {
       this.editModalVisible = false;
-      this.editedItem.name = '';
+      this.editedItem.title = '';
     },
-    handleEdit() {
-      const index = this.items.findIndex(item => item.id === this.editedItem.id);
-      if (index !== -1) {
-        this.items[index].name = this.editedItem.name;
-        // Update other fields if needed
+    async handleEdit() {
+      try {
+        await axios.put(`https://jsonplaceholder.typicode.com/todos/${this.editedItem.id}`, this.editedItem);
+        const index = this.items.findIndex(item => item.id === this.editedItem.id);
+        if (index !== -1) {
+          this.items[index].title = this.editedItem.title;
+        }
+        this.closeEditModal();
+      } catch (error) {
+        console.error('Error updating item:', error);
       }
-      this.closeEditModal();
     },
-    deleteItem(item) {
-      const index = this.items.findIndex(i => i.id === item.id);
-      if (index !== -1) {
-        this.items.splice(index, 1);
+    async deleteItem(itemId) {
+      try {
+        await axios.delete(`https://jsonplaceholder.typicode.com/todos/${itemId}`);
+        this.items = this.items.filter(item => item.id !== itemId);
+      } catch (error) {
+        console.error('Error deleting item:', error);
       }
     }
   }
