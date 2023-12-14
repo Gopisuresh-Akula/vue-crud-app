@@ -4,7 +4,7 @@
     <!-- <basicComponent/> -->
     <global-component />
     <LocalComponentVue/>
-    <MyComponent1/>
+    <My-Component msg="gopi"/>
   </div>
   sss
 </template>
@@ -17,7 +17,7 @@ import MyComponent from './assets/Mocks/MyComponentStructureInfo.vue'
 export default {
   name:'App',
   components: {
-    MyComponent1:MyComponent,
+    "My-Component":MyComponent,
   LocalComponentVue
   }
 }

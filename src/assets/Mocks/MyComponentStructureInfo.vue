@@ -26,6 +26,7 @@
     props: {
       // Properties passed to the component from its parent
       parentData: String,
+      msg
     },
     computed: {
       // Computed properties based on the component's data and props
