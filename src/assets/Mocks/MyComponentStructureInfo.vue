@@ -1,6 +1,7 @@
 <template>
     <!-- The HTML template for the component -->
     <div>
+      {{ msg }}
       <h2>{{ formattedTitle }}</h2>
       <p>{{ formattedContent }}</p>
       <button @click="handleClick">Click me</button>
@@ -26,7 +27,7 @@
     props: {
       // Properties passed to the component from its parent
       parentData: String,
-      msg
+      msg:String
     },
     computed: {
       // Computed properties based on the component's data and props
