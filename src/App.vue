@@ -24,10 +24,10 @@
     />
     {{inputValue}} -->
     <!-- <SlotExamplesVue/> -->
-     <SlotExamplesVue>
+     <!-- <SlotExamplesVue> -->
     <!-- <p>This content will be injected into the slot ok with that.</p> -->
     <!-- named slot -->
-    <template v-slot:header>
+    <!-- <template v-slot:header>
       <h1>Header Slot</h1>
     </template>
     <template v-slot:content>
@@ -41,15 +41,23 @@
       <p>Message: {{ slotProps.message }}</p>
     </template>
 
-  </SlotExamplesVue>
+  </SlotExamplesVue> -->
+    <ChildComponentExamplesVue @custom-event="handleCustomEvent" />
+    <p>{{ messageFromChild }}</p>
   </div>
+<!-- events -->
+  <div>
+    <a href="https://www.example.com" @click.prevent="handleLinkClick">Click me!</a>
+  </div>
+    <button @click.once="handleClickOnce">Click me once!</button>
   <!-- sss -->
 </template>
 <!-- MyComponent -->
 
 <script>
-// import ChildComponentExamplesVue from './assets/Mocks/ChildComponentExamples.vue';
-import SlotExamplesVue from './assets/Mocks/SlotExamples.vue';
+import ChildComponentExamplesVue from './assets/Mocks/ChildComponentExamples.vue';
+import lifecycleExamplesVue from './assets/Mocks/lifecycleExamples.vue';
+// import SlotExamplesVue from './assets/Mocks/SlotExamples.vue';
 // import watcherExamplesVue from './assets/Mocks/watcherExamples.vue';
 // import computedExamplesVue from './assets/Mocks/computedExamples.vue';
 // import DirectivesExamplesVue from './assets/Mocks/DirectivesExamples.vue';
@@ -73,7 +81,9 @@ export default {
     // DirectivesExamplesVue2
     // computedExamplesVue
     // watcherExamplesVue,
-    SlotExamplesVue
+    // SlotExamplesVue,
+    ChildComponentExamplesVue,
+    lifecycleExamplesVue
   },
   data() {
     return {
@@ -87,7 +97,8 @@ export default {
       },
       parentUsername: 'ParentUser',
       parentAge: 25,
-      inputValue:''
+      inputValue: '',
+      messageFromChild: '',
     }
   },
   methods: {
@@ -97,6 +108,15 @@ export default {
     handleInputChange(value) {
       // Handle input change in the parent component
       this.inputValue = value;
+    },
+    handleCustomEvent(message) {
+      this.messageFromChild = message;
+    },
+    handleLinkClick() {
+      console.log('Link clicked, default behavior prevented');
+    },
+    handleClickOnce() {
+      console.log('Button clicked, handler called once');
     },
   },
 };

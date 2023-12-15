@@ -1,7 +1,7 @@
 <!-- ChildComponent.vue -->
 <template>
   <div>
-    <h1>{{ theme }}</h1>
+    <!-- <h1>{{ theme }}</h1>
     <p><strong>Message:</strong> {{ validatedMessage }}</p>
     <p><strong>Count:</strong> {{ validatedCount }}</p>
     <p><strong>Is Active:</strong> {{ isActive }}</p>
@@ -10,7 +10,8 @@
     <p><strong>Required Username:</strong> {{ username }}</p>
     <p><strong>Validated Age:</strong> {{ validatedAge }}</p>
      <input v-model="inputValue" @input="handleChange" />
-    <button @click="handleClick">Click me in Child</button>
+    <button @click="handleClick">Click me in Child</button> -->
+     <button @click="emitCustomEvent('check emit')">Click me!</button>
   </div>
 </template>
 
@@ -96,6 +97,9 @@ export default {
       if (typeof this.onChange === 'function') {
         this.onChange(this.inputValue);
       }
+      },
+    emitCustomEvent(val) {
+      this.$emit('custom-event', val);
     },
   },
 };
