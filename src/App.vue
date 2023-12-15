@@ -19,7 +19,10 @@
       :username="parentUsername"
       :age="parentAge"
        theme="props theme"
+       :btnclick="handleButtonClick"
+       :onChange="handleInputChange"
     />
+    {{inputValue}}
   </div>
   <!-- sss -->
 </template>
@@ -64,8 +67,18 @@ export default {
       },
       parentUsername: 'ParentUser',
       parentAge: 25,
+      inputValue:''
     }
-  }
+  },
+  methods: {
+    handleButtonClick() {
+      alert('Button Clicked in Parent!');
+    },
+    handleInputChange(value) {
+      // Handle input change in the parent component
+      this.inputValue = value;
+    },
+  },
 };
 </script>
 

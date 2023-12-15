@@ -9,13 +9,20 @@
     <p><strong>User:</strong> {{ validatedUser }}</p>
     <p><strong>Required Username:</strong> {{ username }}</p>
     <p><strong>Validated Age:</strong> {{ validatedAge }}</p>
+     <input v-model="inputValue" @input="handleChange" />
+    <button @click="handleClick">Click me in Child</button>
   </div>
 </template>
 
 <script>
 export default {
-    name:'ChildComponentExamples',
-  props: {
+    name: 'ChildComponentExamples',
+     props: {
+    btnclick: {
+      type: Function,
+      required: true,
+         },
+     onChange: Function,
     // String prop with default value
     message: {
       type: String,
@@ -54,6 +61,12 @@ export default {
       validator: (value) => value >= 0 && value <= 120,
     },
   },
+     data() {
+    return {
+      inputValue: '',
+    };
+  },
+   
   computed: {
     validatedMessage() {
       return `Message: ${this.message}`;
@@ -69,6 +82,20 @@ export default {
     },
     validatedAge() {
       return `Validated Age: ${this.age}`;
+    },
+    },
+  methods: {
+    handleClick() {
+      // Invoke the passed function from props
+      if (typeof this.btnclick === 'function') {
+        this.btnclick();
+      }
+      },
+     handleChange() {
+      // Emit the input value to the parent component
+      if (typeof this.onChange === 'function') {
+        this.onChange(this.inputValue);
+      }
     },
   },
 };
