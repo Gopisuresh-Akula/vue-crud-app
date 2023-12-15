@@ -3,6 +3,8 @@
 
 <template>
   <div>
+    -----------------------------------------------------------------------------
+    <h1>Methods</h1>
     <p>{{ message }}</p>
     <p>{{ asyncData }}</p>
     <p>{{ formatMessage("Hello, Vue!") }}</p>
@@ -42,7 +44,6 @@ export default {
     formattedMessage() {
       console.log("mounted AGS");
       return this.message.toUpperCase();
-
     },
     async fetchData() {
       // Simulate an API request
@@ -53,7 +54,6 @@ export default {
       console.log("data..", data.title);
       this.asyncData = data.title;
     },
-    
   },
   mounted() {
     console.log("mounted AGS");

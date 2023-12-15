@@ -1,6 +1,8 @@
 // GlobalComponent.vue
 <template>
   <div>
+     -----------------------------------------------------------------------------
+    <h1> GlobalComponent Examples</h1>
     <!-- Component content -->
     GlobalComponent
   </div>

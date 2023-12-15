@@ -1,6 +1,8 @@
 // LocalComponent.vue
 <template>
   <div>
+         -----------------------------------------------------------------------------
+    <h1>     LocalComponent</h1>
     LocalComponent
     <!-- Component content -->
   </div>

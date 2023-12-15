@@ -1,6 +1,8 @@
 <template>
     <!-- The HTML template for the component -->
     <div>
+           -----------------------------------------------------------------------------
+    <h1> Component Properties</h1>
       {{ msg }}
       <h2>{{ formattedTitle }}</h2>
       <p>{{ formattedContent }}</p>
