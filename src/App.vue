@@ -1,29 +1,35 @@
 <template>
   <div>
     <!-- <basicComponent/> -->
-    <global-component />
+    <!-- <global-component />
     <LocalComponentVue />
     <My-Component msg="gopi" />
-    <VueMethodsVue  vue="...App.."/>
-    <InterpolationsExamplesVue />
+    <VueMethodsVue vue="...App.." />
+    <InterpolationsExamplesVue /> -->
+    <DirectivesExamplesVue2 />
+    <DirectivesExamplesVue  />
   </div>
-  sss
+  <!-- sss -->
 </template>
 <!-- MyComponent -->
 
 <script>
-import InterpolationsExamplesVue from './assets/Mocks/InterpolationsExamples.vue';
-import LocalComponentVue from "./assets/Mocks/LocalComponent.vue";
-import MyComponent from "./assets/Mocks/MyComponentStructureInfo.vue";
-import VueMethodsVue from "./assets/Mocks/VueMethods.vue";
+import DirectivesExamplesVue from './assets/Mocks/DirectivesExamples.vue';
+import DirectivesExamplesVue2 from './assets/Mocks/DirectivesExamples2.vue';
+// import InterpolationsExamplesVue from "./assets/Mocks/InterpolationsExamples.vue";
+// import LocalComponentVue from "./assets/Mocks/LocalComponent.vue";
+// import MyComponent from "./assets/Mocks/MyComponentStructureInfo.vue";
+// import VueMethodsVue from "./assets/Mocks/VueMethods.vue";
 
 export default {
   name: "App",
   components: {
-    "My-Component": MyComponent,
-    LocalComponentVue,
-    VueMethodsVue: VueMethodsVue,
-    InterpolationsExamplesVue
+    // "My-Component": MyComponent,
+    // LocalComponentVue,
+    // VueMethodsVue: VueMethodsVue,
+    // InterpolationsExamplesVue,
+    DirectivesExamplesVue,
+    DirectivesExamplesVue2
   },
 };
 </script>
