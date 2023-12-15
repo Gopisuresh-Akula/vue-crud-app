@@ -18,7 +18,7 @@
       :user="parentUser"
       :username="parentUsername"
       :age="parentAge"
-    
+       theme="props theme"
     />
   </div>
   <!-- sss -->

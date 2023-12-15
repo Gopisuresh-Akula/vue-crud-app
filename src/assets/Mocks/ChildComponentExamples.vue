@@ -1,6 +1,7 @@
 <!-- ChildComponent.vue -->
 <template>
   <div>
+    <h1>{{ theme }}</h1>
     <p><strong>Message:</strong> {{ validatedMessage }}</p>
     <p><strong>Count:</strong> {{ validatedCount }}</p>
     <p><strong>Is Active:</strong> {{ isActive }}</p>
@@ -19,6 +20,10 @@ export default {
     message: {
       type: String,
       default: 'Default Message',
+      },
+    theme: {
+      type: String,
+      default: 'Default theme',
     },
     // Number prop with default value
     count: {
