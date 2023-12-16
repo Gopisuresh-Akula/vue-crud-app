@@ -9,6 +9,8 @@ import GlobalComponent from './assets/Mocks/GlobalComponent.vue';
 import HomeComp from './assets/Mocks/RouterExamples/HomeComp.vue'
 import NotFoundPage from './assets/Mocks/RouterExamples/NotFoundPage.vue'
 import ProductDetail from './assets/Mocks/RouterExamples/ProductDetail.vue'
+import UserInfo from './assets/Mocks/RouterExamples/Nested Routes/UserInfo.vue'
+import UserProfile from './assets/Mocks/RouterExamples/Nested Routes/UserProfile.vue'
 import { createApp } from 'vue';
 
 const app = createApp(App);
@@ -24,6 +26,13 @@ const routes = [
     { path: '/about', component: AboutComp },
     { path: '/product/:id', component: ProductDetail },
     { path: '/:catchAll(.*)', component: NotFoundPage },
+      {
+    path: '/user',
+    component: UserInfo,
+    children: [
+      { path: 'profile', component: UserProfile },
+    ],
+  }
 ];
 
 const router = createRouter({
