@@ -24,7 +24,7 @@ const routes = [
 
   { path: '/', component: HomeComp },
     { path: '/about', component: AboutComp },
-    { path: '/product/:id', component: ProductDetail },
+    { path: '/product/:id', name:'product', component: ProductDetail },
     { path: '/:catchAll(.*)', component: NotFoundPage },
       {
     path: '/user',

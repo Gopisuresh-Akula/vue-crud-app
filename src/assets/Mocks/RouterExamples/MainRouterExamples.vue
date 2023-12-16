@@ -3,6 +3,7 @@
   
     <!-- <button @click="navigateToAbout">Go to About</button>
     <button @click="search">Search</button> -->
+    <button @click="search">Search</button> 
     <router-view></router-view>
 
   </div>
@@ -41,8 +42,14 @@ message:'',
      navigateToAbout() {
       this.$router.push('/about');
       },
-     search() {
-      this.$router.push({ path: `/product/${1234}`, id: 234 });
+      search() {
+           const userData = { username: 'example' };
+      // Use router.push with the state property to pass data
+      this.$router.push({
+        name: 'product',
+        params: { id: 1235690 },
+        state: { userData },
+      });
     },
   },
 }; 
