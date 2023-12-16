@@ -44,8 +44,11 @@
   </SlotExamplesVue> -->
     <!-- <ChildComponentExamplesVue @custom-event="handleCustomEvent" />
     <p>{{ messageFromChild }}</p> -->
+    <!-- <button @click="navigateToAbout">Go to About</button>
      <router-view></router-view>
-     sss
+     sss -->
+      <MainRouterExamples/>
+     
   </div>
   <!-- <div>
     <a href="https://www.example.com" @click.prevent="handleLinkClick">Click me!</a>
@@ -56,6 +59,8 @@
 <!-- MyComponent -->
 
 <script>
+import MainRouterExamples from './assets/Mocks/RouterExamples/MainRouterExamples.vue';
+
 // import ChildComponentExamplesVue from './assets/Mocks/ChildComponentExamples.vue';
 // import lifecycleExamplesVue from './assets/Mocks/lifecycleExamples.vue';
 // import SlotExamplesVue from './assets/Mocks/SlotExamples.vue';
@@ -85,6 +90,7 @@ export default {
     // SlotExamplesVue,
     // ChildComponentExamplesVue,
     // lifecycleExamplesVue
+    MainRouterExamples
   },
   data() {
     return {
@@ -119,8 +125,11 @@ export default {
     handleClickOnce() {
       console.log('Button clicked, handler called once');
     },
+     navigateToAbout() {
+      this.$router.push('/about');
+    },
   },
-};
+}; 
 </script>
 
 <style></style>

@@ -2,11 +2,12 @@
 
 import { createRouter, createWebHistory } from 'vue-router';
 
-import AboutComp from './AboutComp.vue'
+import AboutComp from './assets/Mocks/RouterExamples/AboutComp.vue'
 import Antd from 'ant-design-vue';
 import App from './App.vue';
 import GlobalComponent from './assets/Mocks/GlobalComponent.vue';
-import HomeComp from './HomeComp.vue'
+import HomeComp from './assets/Mocks/RouterExamples/HomeComp.vue'
+import ProductDetail from './assets/Mocks/RouterExamples/ProductDetail.vue'
 import { createApp } from 'vue';
 
 const app = createApp(App);
@@ -14,7 +15,8 @@ const app = createApp(App);
 
 const routes = [
   { path: '/', component: HomeComp },
-  { path: '/about', component: AboutComp },
+    { path: '/about', component: AboutComp },
+   { path: '/product/:id', component: ProductDetail },
 ];
 
 const router = createRouter({
