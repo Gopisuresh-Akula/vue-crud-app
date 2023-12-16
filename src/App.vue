@@ -42,21 +42,22 @@
     </template>
 
   </SlotExamplesVue> -->
-    <ChildComponentExamplesVue @custom-event="handleCustomEvent" />
-    <p>{{ messageFromChild }}</p>
+    <!-- <ChildComponentExamplesVue @custom-event="handleCustomEvent" />
+    <p>{{ messageFromChild }}</p> -->
+     <router-view></router-view>
+     sss
   </div>
-<!-- events -->
-  <div>
+  <!-- <div>
     <a href="https://www.example.com" @click.prevent="handleLinkClick">Click me!</a>
   </div>
-    <button @click.once="handleClickOnce">Click me once!</button>
-  <!-- sss -->
+    <button @click.once="handleClickOnce">Click me once!</button> -->
+   
 </template>
 <!-- MyComponent -->
 
 <script>
-import ChildComponentExamplesVue from './assets/Mocks/ChildComponentExamples.vue';
-import lifecycleExamplesVue from './assets/Mocks/lifecycleExamples.vue';
+// import ChildComponentExamplesVue from './assets/Mocks/ChildComponentExamples.vue';
+// import lifecycleExamplesVue from './assets/Mocks/lifecycleExamples.vue';
 // import SlotExamplesVue from './assets/Mocks/SlotExamples.vue';
 // import watcherExamplesVue from './assets/Mocks/watcherExamples.vue';
 // import computedExamplesVue from './assets/Mocks/computedExamples.vue';
@@ -82,8 +83,8 @@ export default {
     // computedExamplesVue
     // watcherExamplesVue,
     // SlotExamplesVue,
-    ChildComponentExamplesVue,
-    lifecycleExamplesVue
+    // ChildComponentExamplesVue,
+    // lifecycleExamplesVue
   },
   data() {
     return {

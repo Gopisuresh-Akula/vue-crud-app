@@ -16,7 +16,6 @@
 
 <script>
 export default {
-    name: "lifecycleExamples",
   data() {
     return {
       title: 'Vue.js Lifecycle Example',
@@ -26,28 +25,41 @@ export default {
       updateInterval: null,
     };
   },
+  // Lifecycle Hook: created
   created() {
+    // Useful for initializing data and making API calls
     console.log('Component is created');
     this.fetchPosts();
   },
+  // Lifecycle Hook: mounted
   mounted() {
+    // Useful for performing actions after the component is mounted to the DOM
     console.log('Component is mounted');
     this.startRealTimeUpdates();
   },
+  // Lifecycle Hook: beforeUpdate
   beforeUpdate() {
+    // Useful for performing actions before a component updates
     console.log('Component is about to update');
   },
+  // Lifecycle Hook: updated
   updated() {
+    // Useful for performing actions after a component updates
     console.log('Component updated');
   },
+  // Lifecycle Hook: beforeUnmount
   beforeUnmount() {
+    // Useful for cleanup or resource release before a component is destroyed
     console.log('Component is about to be destroyed');
     this.stopRealTimeUpdates();
   },
+  // Lifecycle Hook: unmounted
   unmounted() {
+    // Useful for performing cleanup after a component is destroyed
     console.log('Component is destroyed');
   },
   methods: {
+    // Fetch posts from the API
     fetchPosts() {
       this.loading = true;
       // Simulate API call to JSONPlaceholder
@@ -62,16 +74,19 @@ export default {
           this.loading = false;
         });
     },
+    // Start real-time updates
     startRealTimeUpdates() {
       if (this.realTimeUpdates) return;
 
       this.realTimeUpdates = true;
       this.updateInterval = setInterval(this.fetchPosts, 5000);
     },
+    // Stop real-time updates
     stopRealTimeUpdates() {
       this.realTimeUpdates = false;
       clearInterval(this.updateInterval);
     },
+    // Toggle real-time updates
     toggleRealTimeUpdates() {
       if (this.realTimeUpdates) {
         this.stopRealTimeUpdates();

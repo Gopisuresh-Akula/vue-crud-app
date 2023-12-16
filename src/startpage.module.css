@@ -1,0 +1,22 @@
+.startPage {
+    height: 600px;
+    background-color: rosybrown;
+    text-align: center;
+}
+h2{
+    padding-top: 10rem;
+    font-size: 4rem;
+}
+.btn {
+    background: black;
+    color: #fff;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    outline: none;
+    padding: 0.7rem 2rem;
+    border: none;
+    margin-top: 2rem;
+}
