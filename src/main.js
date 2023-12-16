@@ -23,7 +23,7 @@ const routes = [
   },
 
   { path: '/', component: HomeComp },
-    { path: '/about', component: AboutComp },
+    { path: '/about', name: "about", component: AboutComp },
     { path: '/product/:id', name:'product', component: ProductDetail },
     { path: '/:catchAll(.*)', component: NotFoundPage },
       {

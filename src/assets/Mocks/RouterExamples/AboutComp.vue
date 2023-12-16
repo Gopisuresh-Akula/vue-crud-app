@@ -8,6 +8,9 @@
 
 <script>
 export default {
-    name: 'AboutComp'
+  name: 'AboutComp',
+     mounted() {
+    console.log("State data:", this.$route);
+  },
 }
 </script>

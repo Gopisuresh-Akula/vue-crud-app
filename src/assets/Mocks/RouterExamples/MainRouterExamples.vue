@@ -1,22 +1,14 @@
 <template>
   <div>
-  
     <!-- <button @click="navigateToAbout">Go to About</button>
     <button @click="search">Search</button> -->
-    <button @click="search">Search</button> 
+    <button @click="search">Search</button>
     <router-view></router-view>
-
   </div>
-
-   
 </template>
 <!-- MyComponent -->
 
 <script>
-
-
-
-
 export default {
   name: "MainRouterExamples",
   components: {
@@ -34,25 +26,27 @@ export default {
   },
   data() {
     return {
-message:'',
-  };
+      message: "",
+    };
   },
   methods: {
-    
-     navigateToAbout() {
-      this.$router.push('/about');
-      },
-      search() {
-           const userData = { username: 'example' };
+    navigateToAbout() {
+      this.$router.push("/about");
+    },
+    search() {
+      //    const userData = { username: 'example' };
       // Use router.push with the state property to pass data
-      this.$router.push({
-        name: 'product',
-        params: { id: 1235690 },
-        state: { userData },
+      this.$router.replace({
+        name: "about",
+     state: {
+    user: {
+      name: 'John'
+    }
+  } 
       });
     },
   },
-}; 
+};
 </script>
 
 <style></style>
