@@ -7,6 +7,7 @@ import Antd from 'ant-design-vue';
 import App from './App.vue';
 import GlobalComponent from './assets/Mocks/GlobalComponent.vue';
 import HomeComp from './assets/Mocks/RouterExamples/HomeComp.vue'
+import NotFoundPage from './assets/Mocks/RouterExamples/NotFoundPage.vue'
 import ProductDetail from './assets/Mocks/RouterExamples/ProductDetail.vue'
 import { createApp } from 'vue';
 
@@ -14,15 +15,32 @@ const app = createApp(App);
 
 
 const routes = [
+      { 
+    path: '/:catchAll(.*)', 
+    component: NotFoundPage 
+  },
+
   { path: '/', component: HomeComp },
     { path: '/about', component: AboutComp },
-   { path: '/product/:id', component: ProductDetail },
+    { path: '/product/:id', component: ProductDetail },
+    { path: '/:catchAll(.*)', component: NotFoundPage },
 ];
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
 });
+// main.js
+// router.beforeEach((to, from, next) => {
+//   // Check authentication status
+//   const isAuthenticated = false; //getAuthStatus
+
+//   if (to.name !== 'Login' && !isAuthenticated) {
+//     next({ name: 'Login' });
+//   } else {
+//     next();
+//   }
+// });
 
 // Register Global Component
 app.component('global-component', GlobalComponent);
