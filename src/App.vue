@@ -48,7 +48,8 @@
      <router-view></router-view>
      sss -->
       <!-- <MainRouterExamples/> -->
-     <MainStateMngVue/>
+     <!-- <MainStateMngVue/> -->
+       <router-view></router-view>
   </div>
   <!-- <div>
     <a href="https://www.example.com" @click.prevent="handleLinkClick">Click me!</a>
@@ -60,7 +61,7 @@
 
 <script>
 // import MainRouterExamples from './assets/Mocks/RouterExamples/MainRouterExamples.vue';
-import MainStateMngVue from './assets/Mocks/RouterExamples/stateMangement/MainStateMng.vue';
+// import MainStateMngVue from './assets/Mocks/RouterExamples/stateMangement/MainStateMng.vue';
 
 // import ChildComponentExamplesVue from './assets/Mocks/ChildComponentExamples.vue';
 // import lifecycleExamplesVue from './assets/Mocks/lifecycleExamples.vue';
@@ -92,7 +93,7 @@ export default {
     // ChildComponentExamplesVue,
     // lifecycleExamplesVue
     // MainRouterExamples,
-    MainStateMngVue
+    // MainStateMngVue
   },
   data() {
     return {

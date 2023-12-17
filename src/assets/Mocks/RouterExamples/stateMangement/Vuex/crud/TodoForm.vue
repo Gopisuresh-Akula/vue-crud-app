@@ -29,13 +29,19 @@ export default {
       if (this.isNewTodo) {
         this.$store.dispatch('createTodo', this.todo);
       } else {
-        this.$store.dispatch('updateTodo', this.todo);
+          const data = {
+                id: this.$route.params.id,
+                title: this.todo.title,
+                completed: this.todo.completed
+        }
+        this.$store.dispatch('updateTodo', data);
       }
       this.$router.push('/');
     },
   },
   created() {
-    const todoId = this.$route.params.id;
+      const todoId = this.$route.params.id;
+    console.log("todoId", todoId);
     if (todoId) {
       this.isNewTodo = false;
       this.todo = { ...this.$store.getters.getTodoById(todoId) };

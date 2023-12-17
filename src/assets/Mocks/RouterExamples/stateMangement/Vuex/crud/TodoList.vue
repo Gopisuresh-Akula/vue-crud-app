@@ -30,6 +30,8 @@ export default {
   },
   created() {
     this.$store.dispatch('fetchTodos');
+    console.log(this.$store.state.todos);
+    console.log("state",123 );
   },
 };
 </script>

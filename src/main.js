@@ -14,7 +14,9 @@ import TodoList from './assets/Mocks/RouterExamples/stateMangement/Vuex/crud/Tod
 // import UserInfo from './assets/Mocks/RouterExamples/Nested Routes/UserInfo.vue'
 // import UserProfile from './assets/Mocks/RouterExamples/Nested Routes/UserProfile.vue'
 import { createApp } from 'vue';
-import store from './assets/Mocks/RouterExamples/stateMangement/Vuex/store';
+import crudstore from './assets/Mocks/RouterExamples/stateMangement/Vuex/crud/store/crudstore';
+
+// import store from './assets/Mocks/RouterExamples/stateMangement/Vuex/store';
 
 const app = createApp(App);
 
@@ -76,5 +78,5 @@ app.use(router);
 // Mount the app
 // app.use(router);
 
-app.use(store);
+app.use(crudstore);
 app.mount('#app');
