@@ -47,8 +47,8 @@
     <!-- <button @click="navigateToAbout">Go to About</button>
      <router-view></router-view>
      sss -->
-      <MainRouterExamples/>
-     
+      <!-- <MainRouterExamples/> -->
+     <MainStateMngVue/>
   </div>
   <!-- <div>
     <a href="https://www.example.com" @click.prevent="handleLinkClick">Click me!</a>
@@ -59,7 +59,8 @@
 <!-- MyComponent -->
 
 <script>
-import MainRouterExamples from './assets/Mocks/RouterExamples/MainRouterExamples.vue';
+// import MainRouterExamples from './assets/Mocks/RouterExamples/MainRouterExamples.vue';
+import MainStateMngVue from './assets/Mocks/RouterExamples/stateMangement/MainStateMng.vue';
 
 // import ChildComponentExamplesVue from './assets/Mocks/ChildComponentExamples.vue';
 // import lifecycleExamplesVue from './assets/Mocks/lifecycleExamples.vue';
@@ -90,7 +91,8 @@ export default {
     // SlotExamplesVue,
     // ChildComponentExamplesVue,
     // lifecycleExamplesVue
-    MainRouterExamples
+    // MainRouterExamples,
+    MainStateMngVue
   },
   data() {
     return {
